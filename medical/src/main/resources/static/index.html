@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>MediSync — Pacientes y Citas</title>
+
+</head>
+<body>
+<h1>MediSync</h1>
+<p>Panel inicial conectado a Spring Boot en <code>http://localhost:8080</code></p>
+
+<div class="grid">
+    <section class="card">
+        <h2>Registrar Paciente</h2>
+        <form id="form-paciente">
+            <label>Nombre completo
+                <input type="text" id="pac-nombre" required />
+            </label>
+            <label>Correo
+                <input type="email" id="pac-correo" required />
+            </label>
+            <label>Contraseña
+                <input type="password" id="pac-password" required />
+            </label>
+            <label>Teléfono
+                <input type="text" id="pac-telefono" required />
+            </label>
+            <button type="submit">Guardar Paciente</button>
+        </form>
+        <div id="msg-paciente" class="msg" hidden></div>
+
+        <h3>Pacientes registrados</h3>
+        <ul id="lista-pacientes"></ul>
+    </section>
+
+    <section class="card">
+        <h2>Agendar Cita</h2>
+        <form id="form-cita">
+            <label>Paciente
+                <select id="cita-paciente-id" required>
+                    <option value="">Selecciona un paciente...</option>
+                </select>
+            </label>
+            <label>Fecha y hora
+                <input type="datetime-local" id="cita-fecha" step="1" required />
+            </label>
+            <label>Especialidad
+                <input type="text" id="cita-especialidad" placeholder="Medicina General" required />
+            </label>
+            <label>Motivo
+                <input type="text" id="cita-motivo" placeholder="Control de rutina" />
+            </label>
+            <label>Estado
+                <select id="cita-estado">
+                    <option value="PROGRAMADA">PROGRAMADA</option>
+                    <option value="COMPLETADA">COMPLETADA</option>
+                    <option value="CANCELADA">CANCELADA</option>
+                </select>
+            </label>
+            <button type="submit">Agendar Cita</button>
+        </form>
+        <div id="msg-cita" class="msg" hidden></div>
+
+        <h3>Citas agendadas</h3>
+        <ul id="lista-citas"></ul>
+    </section>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
